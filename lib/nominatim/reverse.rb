@@ -40,5 +40,20 @@ module Nominatim
       self
     end
 
+		def osm_type(type)
+			@criteria[:osm_type] = type
+			self
+		end
+
+		def osm_id(id)
+			@criteria[:osm_id] = id
+			self
+		end
+
+		def zoom(level)
+			@criteria[:zoom] = level.to_i
+			self
+		end
+
   end
 end

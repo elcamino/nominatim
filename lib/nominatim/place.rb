@@ -84,6 +84,14 @@ module Nominatim
       @osm_type ||= @attrs[:osm_type]
     end
 
+		def importance
+			@importance ||= @attrs[:importance]
+	  end
+
+		def icon
+			@icon ||= @attrs[:icon]
+	  end
+
     private
 
     def point

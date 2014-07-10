@@ -79,5 +79,9 @@ module Nominatim
     def village
       @village ||= @attrs[:village]
     end
+
+		def method_missing(name, *args, &block)
+			@attrs[name.to_sym] if @attrs[name.to_sym]
+	  end
   end
 end

@@ -9,8 +9,8 @@ module Nominatim
 
     # Iterates over the search results.
     def each(&block)
-      @results ||= get(Nominatim.config.search_url, @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }
-      @results.each(&block)
+			@results ||= get(Nominatim.config.search_url, @criteria).body.map! { |attrs| Nominatim::Place.new(attrs) }
+			@results.each(&block)
     end
 
     # Query string to search for.
@@ -72,6 +72,13 @@ module Nominatim
       @criteria[:addressdetails] = bool ? 1 : 0
       self
     end
+
+		def feature_type(ftype)
+			@criteria[:featuretype] = ftype
+			self
+		end
+
+
 
     # Exclude given place ids from the search result.
     #
